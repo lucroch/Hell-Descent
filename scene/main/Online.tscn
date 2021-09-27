@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://script/multiplayer/online.gd" type="Script" id=14]
+
+[node name="Online" type="Node"]
+script = ExtResource( 14 )

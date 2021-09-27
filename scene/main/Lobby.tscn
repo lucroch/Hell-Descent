@@ -1,0 +1,170 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://script/multiplayer/lobby/chat.gd" type="Script" id=1]
+[ext_resource path="res://script/multiplayer/lobby/users.gd" type="Script" id=2]
+[ext_resource path="res://scene/map/Room.tscn" type="PackedScene" id=3]
+[ext_resource path="res://script/multiplayer/lobby/lobby.gd" type="Script" id=4]
+[ext_resource path="res://script/multiplayer/lobby/interface.gd" type="Script" id=6]
+[ext_resource path="res://font/CWEBL.TTF" type="DynamicFontData" id=7]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="GDScript" id=7]
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="DynamicFont" id=9]
+size = 24
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_top = -2
+extra_spacing_bottom = 2
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 31
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_top = -4
+font_data = ExtResource( 7 )
+
+[sub_resource type="StyleBoxEmpty" id=11]
+
+[sub_resource type="DynamicFont" id=12]
+size = 14
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 7 )
+
+[sub_resource type="StyleBoxEmpty" id=13]
+
+[sub_resource type="StyleBoxEmpty" id=14]
+
+[node name="Lobby" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Room" parent="." instance=ExtResource( 3 )]
+
+[node name="Users" type="Node2D" parent="."]
+script = ExtResource( 2 )
+
+[node name="Interface" type="CanvasLayer" parent="."]
+script = ExtResource( 6 )
+
+[node name="GUI" type="Control" parent="Interface"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Board" type="Panel" parent="Interface/GUI"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -101.5
+margin_top = -128.5
+margin_right = 101.5
+margin_bottom = 128.5
+custom_styles/panel = SubResource( 6 )
+script = SubResource( 7 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Interface/GUI/Board"]
+anchor_right = 1.0
+margin_bottom = 21.0
+custom_styles/normal = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Players"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Members" type="VBoxContainer" parent="Interface/GUI/Board"]
+anchor_left = 0.0344828
+anchor_top = 0.0972763
+anchor_right = 0.965517
+anchor_bottom = 0.972763
+custom_constants/separation = 2
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ServerName" type="Label" parent="Interface/GUI/Board"]
+anchor_right = 1.0
+margin_left = -198.5
+margin_top = -51.5
+margin_right = -104.5
+margin_bottom = -18.5
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Server Name"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Chat" type="Panel" parent="Interface/GUI"]
+anchor_left = 0.65625
+anchor_top = 0.00831025
+anchor_right = 0.995313
+anchor_bottom = 0.34331
+margin_left = 1.5
+margin_top = -2.99169
+margin_right = 1.49994
+margin_bottom = -2.9267
+custom_styles/panel = SubResource( 11 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Output" type="RichTextLabel" parent="Interface/GUI/Chat"]
+anchor_right = 1.0
+anchor_bottom = 0.876033
+custom_fonts/normal_font = SubResource( 12 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+scroll_following = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Type" type="LineEdit" parent="Interface/GUI/Chat"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -15.0
+custom_styles/focus = SubResource( 13 )
+custom_styles/normal = SubResource( 14 )
+custom_fonts/font = SubResource( 12 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+max_length = 120
+selecting_enabled = false
+caret_blink = true
+caret_blink_speed = 0.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="text_entered" from="Interface/GUI/Chat/Type" to="Interface/GUI/Chat" method="_on_Type_text_entered"]

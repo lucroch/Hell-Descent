@@ -1,0 +1,445 @@
+[gd_scene load_steps=31 format=2]
+
+[ext_resource path="res://script/multiplayer/hall/hall.gd" type="Script" id=1]
+[ext_resource path="res://script/multiplayer/hall/create.gd" type="Script" id=2]
+[ext_resource path="res://font/CWEBL.TTF" type="DynamicFontData" id=3]
+[ext_resource path="res://tileset/refresh.png" type="Texture" id=4]
+[ext_resource path="res://script/multiplayer/servers.gd" type="Script" id=5]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 1, 1, 1, 1 )
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.0588235, 0.0588235, 0.0745098, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 1, 1, 1, 1 )
+anti_aliasing = false
+
+[sub_resource type="DynamicFont" id=3]
+size = 22
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 18
+extra_spacing_top = -2
+extra_spacing_bottom = 1
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="DynamicFont" id=7]
+size = 18
+extra_spacing_top = -2
+extra_spacing_bottom = 1
+font_data = ExtResource( 3 )
+
+[sub_resource type="ImageTexture" id=8]
+
+[sub_resource type="ImageTexture" id=9]
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 1, 1, 1, 1 )
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 1, 1, 1, 1 )
+anti_aliasing = false
+
+[sub_resource type="Theme" id=12]
+default_font = SubResource( 7 )
+PopupMenu/colors/font_color = Color( 1, 1, 1, 1 )
+PopupMenu/colors/font_color_accel = Color( 0, 0, 0, 1 )
+PopupMenu/colors/font_color_disabled = Color( 0.4, 0.4, 0.4, 0.8 )
+PopupMenu/colors/font_color_hover = Color( 0, 0, 0, 1 )
+PopupMenu/colors/font_color_separator = Color( 0.878431, 0.878431, 0.878431, 1 )
+PopupMenu/constants/hseparation = 0
+PopupMenu/constants/vseparation = 0
+PopupMenu/fonts/font = null
+PopupMenu/icons/checked = null
+PopupMenu/icons/radio_checked = SubResource( 8 )
+PopupMenu/icons/radio_unchecked = SubResource( 9 )
+PopupMenu/icons/submenu = null
+PopupMenu/icons/unchecked = null
+PopupMenu/styles/hover = SubResource( 10 )
+PopupMenu/styles/labeled_separator_left = null
+PopupMenu/styles/labeled_separator_right = null
+PopupMenu/styles/panel = SubResource( 11 )
+PopupMenu/styles/panel_disabled = null
+PopupMenu/styles/separator = null
+
+[sub_resource type="StyleBoxEmpty" id=13]
+
+[sub_resource type="StyleBoxEmpty" id=14]
+
+[sub_resource type="StyleBoxEmpty" id=15]
+
+[sub_resource type="StyleBoxEmpty" id=16]
+
+[sub_resource type="StyleBoxFlat" id=17]
+bg_color = Color( 1, 1, 1, 1 )
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=18]
+bg_color = Color( 0.137255, 0.137255, 0.137255, 0 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="DynamicFont" id=19]
+size = 24
+extra_spacing_top = -4
+extra_spacing_bottom = 1
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=20]
+size = 20
+extra_spacing_top = -2
+extra_spacing_bottom = 1
+extra_spacing_char = -1
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=21]
+bg_color = Color( 0.823529, 0.823529, 0.823529, 1 )
+
+[sub_resource type="StyleBoxFlat" id=22]
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=23]
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=24]
+content_margin_left = 0.0
+content_margin_right = 7.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+bg_color = Color( 0.0509804, 0.0509804, 0.0509804, 1 )
+
+[sub_resource type="Theme" id=25]
+VScrollBar/icons/decrement = null
+VScrollBar/icons/decrement_highlight = null
+VScrollBar/icons/increment = null
+VScrollBar/icons/increment_highlight = null
+VScrollBar/styles/grabber = SubResource( 21 )
+VScrollBar/styles/grabber_highlight = SubResource( 22 )
+VScrollBar/styles/grabber_pressed = SubResource( 23 )
+VScrollBar/styles/scroll = SubResource( 24 )
+VScrollBar/styles/scroll_focus = null
+
+[node name="Hall" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bg" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Create" type="Panel" parent="."]
+anchor_left = 0.0109375
+anchor_top = 0.0194444
+anchor_right = 0.301625
+anchor_bottom = 0.383222
+margin_top = 1.57356e-05
+margin_right = -0.0400085
+margin_bottom = 17.0401
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="RichTextLabel" parent="Create"]
+anchor_right = 1.0
+margin_bottom = 27.0
+custom_styles/normal = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 3 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]CREATE GAME"
+text = "CREATE GAME"
+fit_content_height = true
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Setup" type="VBoxContainer" parent="Create"]
+anchor_left = 0.0351759
+anchor_top = 0.236486
+anchor_right = 0.969849
+anchor_bottom = 0.952703
+margin_left = 0.457283
+margin_top = -2.32217
+margin_right = 0.457275
+margin_bottom = -2.32216
+rect_rotation = -0.0848302
+custom_constants/separation = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="HBoxContainer" parent="Create/Setup"]
+margin_right = 173.0
+margin_bottom = 18.0
+custom_constants/separation = 2
+
+[node name="Label" type="Label" parent="Create/Setup/Name"]
+margin_right = 45.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 45, 0 )
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "NAME:"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Edit" type="LineEdit" parent="Create/Setup/Name"]
+margin_left = 47.0
+margin_right = 173.0
+margin_bottom = 18.0
+size_flags_horizontal = 3
+custom_styles/focus = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
+custom_constants/minimum_spaces = 2
+max_length = 25
+placeholder_text = "Server Name"
+
+[node name="Type" type="HBoxContainer" parent="Create/Setup"]
+margin_top = 21.0
+margin_right = 173.0
+margin_bottom = 39.0
+custom_constants/separation = 2
+
+[node name="Label" type="Label" parent="Create/Setup/Type"]
+margin_right = 45.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 45, 0 )
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "TYPE:"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Options" type="OptionButton" parent="Create/Setup/Type"]
+margin_left = 47.0
+margin_right = 173.0
+margin_bottom = 18.0
+focus_mode = 0
+size_flags_horizontal = 3
+theme = SubResource( 12 )
+custom_styles/hover = SubResource( 13 )
+custom_styles/pressed = SubResource( 14 )
+custom_styles/focus = SubResource( 15 )
+custom_styles/normal = SubResource( 16 )
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+enabled_focus_mode = 0
+text = "Public"
+flat = true
+items = [ "Public", null, false, 0, null, "Private", null, false, 1, null, "Friends Only", null, false, 2, null ]
+selected = 0
+
+[node name="Create" type="Button" parent="Create/Setup"]
+margin_left = 36.0
+margin_top = 42.0
+margin_right = 136.0
+margin_bottom = 68.0
+rect_min_size = Vector2( 100, 0 )
+focus_mode = 0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 4
+custom_styles/hover = SubResource( 17 )
+custom_styles/pressed = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+custom_fonts/font = SubResource( 19 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+enabled_focus_mode = 0
+text = "CREATE"
+
+[node name="Friends" type="Panel" parent="."]
+anchor_left = 0.011
+anchor_top = 0.411
+anchor_right = 0.302
+anchor_bottom = 0.980222
+margin_left = -0.0400004
+margin_top = 14.04
+margin_right = -0.280014
+margin_bottom = 0.119995
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="RichTextLabel" parent="Friends"]
+anchor_right = 1.0
+margin_bottom = 27.0
+custom_styles/normal = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 3 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]FRIENDS"
+text = "FRIENDS"
+fit_content_height = true
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Servers" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 198.0
+margin_top = 7.0
+margin_right = -6.0
+margin_bottom = -7.0
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="RichTextLabel" parent="Servers"]
+anchor_right = 1.0
+margin_bottom = 27.0
+custom_styles/normal = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 3 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]SERVERS"
+text = "SERVERS"
+fit_content_height = true
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Refresh" type="TextureButton" parent="Servers"]
+modulate = Color( 1, 1, 1, 0.6 )
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -20.0
+margin_top = 5.0
+margin_right = -4.0
+margin_bottom = 21.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 4 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Servers"]
+margin_left = 7.0
+margin_top = 56.0
+margin_right = 7.0
+margin_bottom = 70.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Terms" type="HBoxContainer" parent="Servers"]
+anchor_left = 0.015873
+anchor_top = 0.0944444
+anchor_right = 0.970522
+anchor_bottom = 0.147222
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Name" type="Label" parent="Servers/Terms"]
+margin_right = 190.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 190, 0 )
+custom_fonts/font = SubResource( 20 )
+text = "NAME"
+
+[node name="Mode" type="Label" parent="Servers/Terms"]
+margin_left = 194.0
+margin_right = 304.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 110, 0 )
+custom_fonts/font = SubResource( 20 )
+text = "MODE"
+
+[node name="Players" type="Label" parent="Servers/Terms"]
+margin_left = 308.0
+margin_right = 358.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 50, 0 )
+custom_fonts/font = SubResource( 20 )
+text = "PLAYERS"
+
+[node name="Status" type="Label" parent="Servers/Terms"]
+margin_left = 362.0
+margin_right = 416.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 44, 0 )
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 20 )
+text = "STATUS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Scroll" type="ScrollContainer" parent="Servers"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 7.0
+margin_top = 56.0
+margin_right = -6.0
+margin_bottom = -12.0
+theme = SubResource( 25 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBox" type="VBoxContainer" parent="Servers/Scroll"]
+margin_right = 423.0
+margin_bottom = 278.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="text_entered" from="Create/Setup/Name/Edit" to="Create" method="_on_Edit_text_entered"]
+[connection signal="button_up" from="Create/Setup/Create" to="Create" method="_on_Button_button_up"]
+[connection signal="button_up" from="Servers/Refresh" to="Servers" method="_on_Refresh_button_up"]
+[connection signal="mouse_entered" from="Servers/Refresh" to="Servers" method="_on_Refresh_mouse_entered"]
+[connection signal="mouse_exited" from="Servers/Refresh" to="Servers" method="_on_Refresh_mouse_exited"]
